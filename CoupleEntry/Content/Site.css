@@ -1,0 +1,254 @@
+﻿﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.mask {
+    z-index: 100000;
+    background-color: rgba(0,0,0,0.2);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.dot {
+    height: 14px;
+    width: 14px;
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.loading {
+    position: absolute;
+    border-bottom: 6px solid #fff;
+    border-left: 6px solid #fff;
+    border-right: 6px solid #438FBC;
+    border-top: 6px solid #438FBC;
+    border-radius: 100%;
+    -webkit-animation: spin 2s infinite linear;
+    -moz-animation: spin 2s infinite linear;
+    -ms-animation: spin 2s infinite linear;
+    -o-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+    width: 50px;
+    height: 50px;
+    left: 50%;
+    margin: 0 auto;
+    top: 50%;
+    margin-top: -25px;
+    margin-left: -25px;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+.cursorPointer {
+    cursor: pointer;
+}
+
+.iconImageUrl {
+    width: 6em;
+    height: 6em;
+    zoom: 59%;
+    display: inline-block;
+}
+
+.iconImageUrlChat {
+    width: 6em;
+    height: 6em;
+    zoom: 40%;
+    display: inline-block;
+}
+
+#nearbyPeopleListContainer, #matchedPeopleListContainer {
+    overflow-y: scroll;
+    padding:10px;
+}
+
+#nearbyPeopleList {
+    max-height: 668px;
+    min-height: 668px;
+}
+
+#matchedPeopleList {
+    max-height: 366px;
+    min-height: 366px;
+}
+
+.heartIcon {
+    color: hotpink;
+    font-size: 15px;
+}
+
+#mainDiv {
+    margin-top: 65px;
+}
+
+.block {
+    display: block;
+}
+
+.messageUsers {
+    margin-bottom: 8px;
+}
+
+
+ul {
+    list-style-type: none;
+}
+
+.hismsg {
+    border: 1px solid brown;
+    list-style-position: inside;
+    padding: 5px;
+    border-radius: 25px;
+    background-color: burlywood;
+    color: beige;
+    margin-bottom: 3px;
+    margin-top: 2px;
+    word-break: break-all;
+    line-height: 20px;
+    padding-left: 18px;
+    margin-right: 40%;
+}
+
+.mymsg {
+    border: 1px solid brown;
+    list-style-position: inside;
+    padding: 5px;
+    border-radius: 25px;
+    background-color: lightblue;
+    color: peru;
+    margin-bottom: 3px;
+    margin-top: 2px;
+    word-break: break-all;
+    line-height: 20px;
+    padding-left: 18px;
+    margin-left: 40%;
+}
+
+.messageTime {
+    /*margin-right:10px;*/
+    color: dimgray;
+    font-size: 10px;
+}
+/*.mymsgText {
+     font-weight: bold;
+    color: grey;
+}
+
+.himmsgText {
+    font-weight: bold;
+    color: indianred;
+}*/
+
+#matchedUsersChat {
+    border-radius: 25px;
+    color: darkslategrey;
+    /*background-color: indianred;*/
+    /*height: 500px;*/
+    /*width: 200px;*/
+     overflow-y: auto;
+    max-height: 640px;
+    padding:15px;
+}
+
+.chatBoxArea {
+    color: darkslategrey;
+    background-color: lightyellow;
+    height: 600px;
+    /*width: 600px;*/
+    overflow: auto;
+    padding-top: 10px;
+    border-radius: 40px;
+    padding-right: 30px;
+    margin-bottom: 10px;
+    margin-right:25px;
+}
+
+
+#sendMsg {
+    background-color: darkslategrey;
+    color: white;
+    height: 40px;
+    border-radius: 20px;
+    height: 40px !important;
+    margin-bottom: 10px;
+}
+
+.tile {
+    border-radius: 25px !important;
+    max-height: 320px;
+    max-width: 520px;
+}
+
+    .tile:hover {
+        box-shadow: 2px 1px 7px #428bca;
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+        transition-duration: 0.5s;
+    }
+
+#msgBox {
+    min-width: 80%;
+    background-color: saddlebrown;
+    color: white;
+    border-radius: 25px;
+    height: 40px;
+}
+
+div#contentsDiv {
+    display:flex;
+    flex-flow: row wrap;
+    justify-content:space-between;
+}
+
+div#contentsDiv > div.mapInfo {
+    flex: 3;
+}
+
+div#contentsDiv > div {
+    flex: 1;
+}
+
+@media screen and (max-width: 600px) {
+    div#contentsDiv {
+        flex-direction:column
+    }
+
+    div#contentsDiv > div.filterAndMatches {
+    order: 2;
+    }
+
+    div#contentsDiv > div.nearbyPeopleListContainer {
+        order: 3;
+    }
+    
+    div#contentsDiv > div.mapInfo {
+        order: 1;
+    }
+}

@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="254132111059-vqf8bgnklrfrdq6b46pkbvjqaua2mo8l.apps.googleusercontent.com">
+    <title>@ViewBag.Title</title>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAme7silNihhy4-UJNE76I2LUdf2PxkEZY">
+    </script>
+    <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/utility.js"></script>
+    <script src="~/Scripts/loginScripts.js"></script>
+    <script src="~/Scripts/script.js"></script>
+    @Styles.Render("~/Content/css")
+
+</head>
+<body>
+    <script>
+        var baseUrl = '@string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~"))';
+    </script>
+    <div ng-app="mainModule">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    </ul>
+                    @Html.Partial("~/Views/Login/_LoginPartial.cshtml")
+                </div>
+            </div>
+        </div>
+        <div id="mask" ng-show="showMask" class="mask" style="top: 0px; height: 100%; width: 100%;">
+            <div class="loading"></div>
+        </div>
+        <audio id="msgSound" src="https://notificationsounds.com/message-tones/served-504/download/mp3" preload="auto"></audio>
+        <div id="mainDiv" class="container-fluid body-content">
+
+            @if (IsSectionDefined("Login"))
+            {
+                @Html.Partial("~/Views/Login/_LoginModal.cshtml")
+                @RenderSection("Login")
+
+            }
+
+            @if (IsSectionDefined("Integration"))
+            {
+                @RenderSection("Integration")
+            }
+
+            @if (IsSectionDefined("AddUser"))
+            {
+                @RenderSection("AddUser")
+            }
+
+            @if (IsSectionDefined("EditUser"))
+            {
+                @RenderSection("EditUser")
+            }
+            @if (IsSectionDefined("Chat"))
+            {
+                @RenderSection("Chat")
+            }
+
+
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @*  @RenderSection("scripts", required: false)*@
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿
+<div class="modal fade in" style="" id="myLoginModal" ng-show="showModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color:ghostwhite;text-align:center;">
+
+            <div class="modal-body">
+                <h2>Login Or Signup</h2>
+                <div class="g-signin2 text-center" style="display:inline-block;" data-cookiepolicy='single_host_origin' data-onSuccess="onSignIn"></div>
+                
+                @*<fb:login-button scope="public_profile,email"
+                         onlogin="checkLoginState();">
+                  </fb:login-button>*@
+                <br />
+                <div class="fb-login-button" style="display:inline-block;"
+                     data-max-rows="1" data-size="medium" data-show-faces="false"
+                     data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();" data-button-type="login_with"></div>
+
+            </div>
+
+            <button type="button" ng-click="HideMyModal()" class="btn btn-warning center-block" data-dismiss="modal" style="margin-bottom:10px">Cancel</button>
+        </div>
+    </div>
+</div>
+
+

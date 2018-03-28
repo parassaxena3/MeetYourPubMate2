@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "ChatAdda!";
+}
+@section Chat{
+
+    <div style="background-color: darkkhaki;" ng-controller="ChatController" ng-init="GetMatchedUsers()" class="container-fluid">
+        <div class="row">
+            <div class="col col-xs-4">
+                <h3>Your Matches:</h3>
+                <div id="matchedUsersChat">
+                    <div ng-repeat="person in $root.MatchedUsers" class="tile messageUsers cursorPointer" ng-class-even="'panel-warning'" ng-class-odd="'panel-primary'">
+                        <div ng-click="ShowChatOfUser(person);"  class="panel-heading" style="padding:6px;word-wrap: break-word;">
+                            <span class="iconImageUrlChat" style="background:url({{person.ImageUrl}})"></span>
+                            <span> {{person.Name | uppercase}}</span>
+                            <span ng-show="person.Online" class="dot"></span>
+                            <span ng-if="person.UserId==ActiveChatUser" class="glyphicon glyphicon-arrow-left pull-right"></span>
+                            <span ng-if="person.UnreadMsgCount>0">({{person.UnreadMsgCount}})</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-xs-8">
+                <h3>{{ActiveChatUserName | uppercase}}</h3>
+                <div ng-view></div>
+            </div>
+        </div>
+    </div>
+}
