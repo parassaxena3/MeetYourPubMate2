@@ -1,6 +1,6 @@
 ﻿
 function SendMessage($http, $scope, $rootScope, otherUserId, $timeout) {
-
+    //test
     $http.get(baseUrl + "Home/AddMessage?otherUserId=" + otherUserId + "&message=" + $rootScope.messageValue)
             .then(function successCallback(response) {
                 if (response.status == 200 && response.data.success) {
